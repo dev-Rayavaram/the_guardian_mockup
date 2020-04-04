@@ -1,0 +1,111 @@
+html,body{
+  display: flex;
+  flex-direction:row;
+  flex-wrap: wrap;
+   flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  width:100%;
+  height:100%;
+  min-height: 100vh;
+  min-width: 100vh;
+  background:transparent;
+  overflow:scroll;
+  padding:0;
+  border: 0;
+  margin: 0;
+}
+.App{
+  height:100%;
+  width:100%;
+display: flex;
+float: left;
+flex-direction: column;
+justify-content:center;
+flex:20% 80%;
+flex-flow: wrap;
+
+}
+.body{
+background-color: blue;
+height:80%;
+width:100%;
+display: grid;
+grid-template-columns: 2fr 10fr;
+min-height: 100vh;
+min-width: 100vh;
+
+}
+.header,.footer{
+background-color: brown;
+height:20%;
+width:100%;
+}
+.header{
+  display:flex;
+  flex-direction:row;
+  flex-wrap: wrap;
+   max-height: 200px;
+   height: 20%;
+   width:100%;
+}
+.headerLeft{
+  display:grid; 
+  width:50%;
+  height:100%;
+  grid-template-rows: 1fr 1fr;
+  background-color: pink;
+}
+.headerRight{
+  display:grid; 
+  width:50%;
+  height:100%;
+  grid-template-rows: 3fr 9fr;
+  background-color: magenta;
+}
+.rightheader1{
+ order:1;
+ height:100%;
+ background-color: yellow; 
+}
+.rightheader2{
+  order:2;
+  height:100%;
+  background-color: green; 
+ }
+.weather{
+  display:grid;   
+  background-color: red;
+}
+.navbar{
+  display:grid;  
+     background-color: lightsteelblue;
+}
+
+.left{
+  order:1;
+  background-color: cornsilk;
+}
+.main{
+  display: grid;
+  order:2;
+  float:down;
+  background-color:lightcyan;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(6,2fr);
+  
+}
+.box1 { 
+  grid-column-start: 1; 
+  grid-column-end: 5; 
+  grid-row-start: 1; 
+  grid-row-end: 3; 
+  background-color: lightsalmon;
+}
+.box2{
+  -ms-grid-column-span: 1;
+  -ms-grid-row-span: 1;
+  background-color: lightsteelblue;
+  border: 2px solid black;
+}
+
