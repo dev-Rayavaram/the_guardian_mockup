@@ -4,6 +4,8 @@ import './App.css';
 import Article from './components/Article.js'
 import Leftbar from './components/Leftbar.js'
 import Navbar from './components/Navbar.js'
+import Footer from './components/Footer.js'
+
 import Main from './components/Main.js'
 
 import Rightbar from './components/Rightbar.js'
@@ -51,7 +53,7 @@ class App extends React.Component {
                 <div className='box1'>Hi</div>
               </div>
           </div>
-          <div className='footer'>Hi</div>
+          <div className='footer'><Footer/></div>
 
         </div>
     )
