@@ -8,13 +8,14 @@ export default class Navbar extends Component
       constructor(props){
         super(props);
         this.state={
+          value:'News',
           style:{
-            'textDecoration':'none',
-            backgroundColor:'#005689',
-            color:'white',
-            border:'white',
-            'fontFamily':'Jacques Francois',
-            'fontSize': '30px'
+                  'textDecoration':'none',
+                  backgroundColor:'#005689',
+                  color:'white',
+                  border:'white',
+                  'fontFamily':'Jacques Francois',
+                  'fontSize': '30px'
           }
         }
         // this.onMouseOver =  this.onMouseOver.bind(this);
@@ -22,32 +23,36 @@ export default class Navbar extends Component
 
       }
       onMouseOver=(event)=>{
-    
-            
         console.log(this.state.style.backgroundColor)
       }
-      onMouseClick=(event)=>{
-        event.preventDefault();
-        console.log("inside mouse over")
-        if(event.target.innerHTML === 'News'){
-          alert('News')
+      onMouseClick=(category)=>{
+        if(category === 'News'){
+          this.setState({value:'News'});
+          this.props.onLinkClicked('News');
+
         }
-        else if(event.target.innerHTML === 'Opinion'){
+        else if(category === 'Opinion'){
           // this.setState({style:{border:'orange'}});
-          alert('Opinion')
+          this.setState({value:'Opinion'});
+          this.props.onLinkClicked('Opinion');
 
         }
-        else if(event.target.innerHTML === 'Sport'){
-          alert('Sport')
+        else if(category === 'Sport'){
+          this.setState({value:'Sport'})
+          this.props.onLinkClicked('Sport');
+          
         }
-        else if(event.target.innerHTML === 'Sport'){
+        else if(category === 'Culture'){
+          this.setState({value:'Culture'})
+          this.props.onLinkClicked('Culture');
+          
         }
-        else if(event.target.innerHTML === 'Culture'){
-
-        }
-        else if(event.target.innerHTML === 'LifeStyle'){
-
-        }  
+        else if(category === 'LifeStyle'){
+          this.setState({value:'LifeStyle'});
+          this.props.onLinkClicked('LifeStyle');
+     
+        } 
+ 
       }
 
       render(){
@@ -58,19 +63,19 @@ export default class Navbar extends Component
             <nav>
                 <ul>
                   <li>
-                  <Link to="#"  style={this.state.style} onClick={this.onMouseClick} >News</Link>
+                  <Link to="/News"  style={this.state.style} onClick={()=>this.onMouseClick('News')} >News</Link>
                 </li>
                 <li>
-                  <Link to="#"  style={this.state.style} onClick={this.onMouseClick}>Opinion</Link>
+                  <Link to="#"  style={this.state.style} onClick={()=>this.onMouseClick('Opinion')}>Opinion</Link>
                 </li>
                 <li>
-                  <Link to="#"  style={this.state.style} onClick={this.onMouseClick}>Sport</Link>
+                  <Link to="#"  style={this.state.style} onClick={()=>this.onMouseClick('Sport')}>Sport</Link>
                 </li>
                 <li>
-                  <Link to="#"  style={this.state.style} onClick={this.onMouseClick}>Culture</Link>
+                  <Link to="#"  style={this.state.style} onClick={()=>this.onMouseClick('Culture')}>Culture</Link>
                 </li>
                 <li>
-                  <Link to="#"  style={this.state.style} onClick={this.onMouseOver}>LifeStyle</Link>
+                  <Link to="#"  style={this.state.style} onClick={()=>this.onMouseClick('LifeStyle')}>LifeStyle</Link>
                 </li> 
               </ul>
             </nav>
@@ -101,7 +106,11 @@ export default class Navbar extends Component
          
         render(){
           return(
-            <span></span>
+            <div>
+              <span></span>
+        
+            </div>
+
           );
         }
  }
@@ -122,8 +131,6 @@ export default class Navbar extends Component
                 <span></span>
 
               );
-            
-
             }
      }
             class Culture extends Component {
