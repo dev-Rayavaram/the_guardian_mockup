@@ -40,13 +40,8 @@ class App extends React.Component {
               </div>
              </div>
             <div className='headerRight'>
-              <div className='rightheader1'>
-                HI
-              </div>
-              <div className='rightheader2'>
-                HI
-              </div>
-            </div>
+              <Rightbar/>
+             </div>
          </div>
           <div className='body'>
               <div className='left'>
