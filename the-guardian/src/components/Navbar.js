@@ -12,11 +12,44 @@ export default class Navbar extends Component
             'textDecoration':'none',
             backgroundColor:'#005689',
             color:'white',
+            border:'white',
             'fontFamily':'Jacques Francois',
             'fontSize': '30px'
           }
         }
+        // this.onMouseOver =  this.onMouseOver.bind(this);
+        // this.onMouseClick= this.onMouseClick.bind(this);          
+
       }
+      onMouseOver=(event)=>{
+    
+            
+        console.log(this.state.style.backgroundColor)
+      }
+      onMouseClick=(event)=>{
+        event.preventDefault();
+        console.log("inside mouse over")
+        if(event.target.innerHTML === 'News'){
+          alert('News')
+        }
+        else if(event.target.innerHTML === 'Opinion'){
+          // this.setState({style:{border:'orange'}});
+          alert('Opinion')
+
+        }
+        else if(event.target.innerHTML === 'Sport'){
+          alert('Sport')
+        }
+        else if(event.target.innerHTML === 'Sport'){
+        }
+        else if(event.target.innerHTML === 'Culture'){
+
+        }
+        else if(event.target.innerHTML === 'LifeStyle'){
+
+        }  
+      }
+
       render(){
         return (
  
@@ -25,19 +58,19 @@ export default class Navbar extends Component
             <nav>
                 <ul>
                   <li>
-                  <Link to="#"  style={this.state.style}>News</Link>
+                  <Link to="#"  style={this.state.style} onClick={this.onMouseClick} >News</Link>
                 </li>
                 <li>
-                  <Link to="#"  style={this.state.style}>Opinion</Link>
+                  <Link to="#"  style={this.state.style} onClick={this.onMouseClick}>Opinion</Link>
                 </li>
                 <li>
-                  <Link to="#"  style={this.state.style}>Sport</Link>
+                  <Link to="#"  style={this.state.style} onClick={this.onMouseClick}>Sport</Link>
                 </li>
                 <li>
-                  <Link to="#"  style={this.state.style}>Culture</Link>
+                  <Link to="#"  style={this.state.style} onClick={this.onMouseClick}>Culture</Link>
                 </li>
                 <li>
-                  <Link to="#"  style={this.state.style}>LifeStyle</Link>
+                  <Link to="#"  style={this.state.style} onClick={this.onMouseOver}>LifeStyle</Link>
                 </li> 
               </ul>
             </nav>
@@ -62,12 +95,14 @@ export default class Navbar extends Component
     } 
 
       class News extends Component {
+        constructor(props){
+          super(props);
+         }
+         
         render(){
           return(
             <span></span>
           );
-        
-
         }
  }
 
