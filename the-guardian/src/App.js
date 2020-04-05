@@ -1,11 +1,11 @@
 import React from 'react';
-import {Route,Switch,Link,BrowserRouter as Router} from 'react-router-dom'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesome} from 'react-fontawesome'
 import './App.css';
 import Article from './components/Article.js'
 import Leftbar from './components/Leftbar.js'
-import Main from './components/Main.js'
 import Navbar from './components/Navbar.js'
+import Main from './components/Main.js'
+
 import Rightbar from './components/Rightbar.js'
 import SubCategory from './components/SubCategory.js'
 import Weather from './components/Weather.js'
