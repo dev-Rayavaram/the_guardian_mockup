@@ -17,9 +17,9 @@ class SubCategory extends Component
           <React.Fragment>
             <div className='subcategory'>
 
-             {this.props.subCategory.map((sub) => {
+             {this.props.subCategory.map((sub ,id) => {
             return (
-                <h1 style={this.state.style}>
+                <h1 style={this.state.style} key={id}>
                     {sub}
                 </h1>
             )
