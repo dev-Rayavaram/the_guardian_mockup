@@ -1,3 +1,13 @@
+//Pseudocode
+//create components for each section
+//initialize state for each component
+//initialize section data in parent component
+//create Navbar for each section
+//create weather icons using fontawesome package
+//trigger onclick event from navbar element to parent element(****functionality is not complete for each menu item)
+//using axios get data from open guardian api
+//using props send data to child components
+//render child components using props data
 import React from 'react';
 import './App.css';
 import axios from 'axios'
