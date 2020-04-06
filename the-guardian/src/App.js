@@ -4,6 +4,7 @@ import axios from 'axios'
 import Article from './components/Article.js'
 import Navbar from './components/Navbar.js'
 import Footer from './components/Footer.js'
+import FontAwesome from 'react-fontawesome'
 
 import Main from './components/Main.js'
 
@@ -24,7 +25,8 @@ class App extends React.Component {
         webTitle:'',
         sectionName:'',
         webUrl:''
-      }
+      },
+      article:[]
     }
   }
   
@@ -56,13 +58,18 @@ class App extends React.Component {
       //console.log(this.state.data)
       let items=this.state.data;
       let Names=[];
+      let articles=[];
       for(let i=0; i<items.length;i++){
       //  console.log(items[i].sectionName)
         Names.push(items[i].sectionName);
+        articles.push(items[i].webTitle)
       }
       getMainItem(items[0]);
      // console.log("main",this.state.main);
       this.setState({sectionNames:Names})
+      this.setState({article:articles})
+      console.log('articles');
+      console.log(this.state.article)
     })
     .catch(error => {
       console.log('there is an eror', error)
@@ -93,7 +100,21 @@ class App extends React.Component {
                 <div className='box1'>
                     <Main main={this.state.main} />
                 </div>
-                  <Article data={this.state.main}/>
+                <React.Fragment>
+                  <Article data={this.state.article[0]}/>
+                <Article data={this.state.article[1]}/>
+                <Article data={this.state.article[2]}/>
+                <Article data={this.state.article[3]}/>
+                <Article data={this.state.article[4]}/>
+                <Article data={this.state.article[5]}/>
+                <Article data={this.state.article[6]}/>
+                <Article data={this.state.article[7]}/>
+                <Article data={this.state.article[8]}/>
+                <Article data={this.state.article[9]}/>
+                </React.Fragment>
+                
+                
+
               </div>
           </div>
           <div className='footer'><Footer/></div>
