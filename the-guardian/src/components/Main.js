@@ -4,14 +4,11 @@ import React,{Component} from 'react';
 class Main extends Component
     {
       render(){
-        const openInNewTab=(url)=> {
-           window.open(url, '_blank');
-        }
         return (
           <React.Fragment>
            <h1>{this.props.main.webTitle}</h1><caption>{this.props.main.webPublicationDate}</caption>
            <div>
-              <img src={image} alt="main" width='400px' height='400px'></img>
+              <img src={image} alt="main" width='100%' height='400px'></img>
            </div>
           </React.Fragment>
         );
