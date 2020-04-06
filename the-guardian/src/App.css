@@ -173,12 +173,15 @@ li {
   grid-template-rows: repeat(6,2fr);
   
 }
+image{
+  width: max-content;
+}
 .box1 { 
   grid-column-start: 1; 
   grid-column-end: 5; 
   grid-row-start: 1; 
   grid-row-end: 3; 
-  background-color: lightsalmon;
+  background-color: gainsboro;
 }
 .box2{
   -ms-grid-column-span: 1;
