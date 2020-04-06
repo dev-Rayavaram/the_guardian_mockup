@@ -1,6 +1,5 @@
 import React,{Component} from 'react';
 import FontAwesome from 'react-fontawesome'
-import faStyles from 'font-awesome/css/font-awesome.css'
 
 class Weather extends Component
     {
