@@ -147,6 +147,7 @@ li {
   border: 1px solid white;
   background-color:white;
 }
+
 .vl {
   border-left: 6px solid white;
   height: 30px;
@@ -197,4 +198,13 @@ button{
   display: flex;
   flex-direction: column;
 
+}
+.subcategory{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  font-family: 'Jacques Francois';
+  font-size:'30px';
+  width:100%
 }

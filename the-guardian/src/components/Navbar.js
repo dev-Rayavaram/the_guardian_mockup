@@ -1,6 +1,5 @@
 import React,{Component} from 'react';
 import {Route,Switch,Link,BrowserRouter as Router} from 'react-router-dom'
-import Main from '../components/Main.js'
 
 
 export default class Navbar extends Component
@@ -49,8 +48,7 @@ export default class Navbar extends Component
         }
         else if(category === 'LifeStyle'){
           this.setState({value:'LifeStyle'});
-          this.props.onLinkClicked('LifeStyle');
-     
+          this.props.onLinkClicked('LifeStyle');     
         } 
  
       }
@@ -100,11 +98,7 @@ export default class Navbar extends Component
     } 
 
       class News extends Component {
-        constructor(props){
-          super(props);
-         }
-         
-        render(){
+         render(){
           return(
             <div>
               <span></span>

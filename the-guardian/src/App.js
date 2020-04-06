@@ -1,6 +1,7 @@
 import React from 'react';
 import { FontAwesome} from 'react-fontawesome'
 import './App.css';
+import axios from 'axios'
 import Article from './components/Article.js'
 import Leftbar from './components/Leftbar.js'
 import Navbar from './components/Navbar.js'
@@ -12,23 +13,42 @@ import Rightbar from './components/Rightbar.js'
 import SubCategory from './components/SubCategory.js'
 import Weather from './components/Weather.js'
 class App extends React.Component {
-  state = {
-    rowData: [{
-      id: 1,
-      style: {
-        color: 'blue'
+  constructor(props){
+    super(props);
+    this.state={
+      category:'News',
+      data:'',
+      sectionNames:[]
+    }
+  }
+  
+  onLinkClicked=(category)=>{
+    this.setState({category:category})
+    console.log("parent",this.state.category);
+
+    
+  }
+  componentDidMount() {
+    let apiKey=process.env.REACT_APP_API_KEY
+     axios.get(`https://content.guardianapis.com/search?api-key=${apiKey}`)
+    .then(res => {
+      const results = res.data.response.results;
+     // console.log("results ---->", results)      
+      this.setState({data: results});
+      //console.log(this.state.data)
+      let items=this.state.data;
+      let Names=[];
+      for(let i=0; i<items.length;i++){
+        console.log(items[i].sectionName)
+        Names.push(items[i].sectionName);
       }
-    }, 
-    {
-      id: 2,
-      style: {
-        color: 'blue',
-        backgroundColor: '#000',
-        width: "100%",
-        fontSize: "2em"
-      }
-    }]
-  }; 
+      this.setState({sectionNames:Names})
+    })
+    .catch(error => {
+      console.log('there is an eror', error)
+    })
+
+  }
   render() {
     return (
         <div className='App'>
@@ -38,7 +58,7 @@ class App extends React.Component {
                 <Weather/>
               </div>
               <div className='navbar'>
-                <Navbar/>
+                <Navbar onLinkClicked={this.onLinkClicked}/>
               </div>
              </div>
             <div className='headerRight'>
@@ -47,7 +67,7 @@ class App extends React.Component {
          </div>
           <div className='body'>
               <div className='left'>
-                <div className='sub-category'>HI</div>
+                <div className='sub-category'><SubCategory subCategory={this.state.sectionNames} /></div>
               </div>
               <div className='main'>
                 <div className='box1'>Hi</div>
@@ -59,6 +79,7 @@ class App extends React.Component {
     )
     
    
-  }}
+  }
+}
   
   export default App;
