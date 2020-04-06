@@ -1,9 +1,7 @@
 import React from 'react';
-import { FontAwesome} from 'react-fontawesome'
 import './App.css';
 import axios from 'axios'
 import Article from './components/Article.js'
-import Leftbar from './components/Leftbar.js'
 import Navbar from './components/Navbar.js'
 import Footer from './components/Footer.js'
 
@@ -32,7 +30,7 @@ class App extends React.Component {
   
   onLinkClicked=(category)=>{
     this.setState({category:category})
-    console.log("parent",this.state.category);
+  //  console.log("parent",this.state.category);
 
     
   }
@@ -58,13 +56,12 @@ class App extends React.Component {
       //console.log(this.state.data)
       let items=this.state.data;
       let Names=[];
-      let mainItem=[]
       for(let i=0; i<items.length;i++){
-        console.log(items[i].sectionName)
+      //  console.log(items[i].sectionName)
         Names.push(items[i].sectionName);
       }
       getMainItem(items[0]);
-      console.log("main",this.state.main);
+     // console.log("main",this.state.main);
       this.setState({sectionNames:Names})
     })
     .catch(error => {
