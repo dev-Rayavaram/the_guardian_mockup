@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
- import image from '../assets/images/1208.jpg'
+ import image from '../assets/images/5000.jpg'
 
 class Main extends Component
     {
