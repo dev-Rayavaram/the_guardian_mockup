@@ -18,7 +18,15 @@ class App extends React.Component {
     this.state={
       category:'News',
       data:'',
-      sectionNames:[]
+      sectionNames:[],
+      main:{
+        id:'',
+        sectionId:'',
+        webPublicationDate:'',
+        webTitle:'',
+        sectionName:'',
+        webUrl:''
+      }
     }
   }
   
@@ -28,7 +36,19 @@ class App extends React.Component {
 
     
   }
+  
   componentDidMount() {
+   const getMainItem =items=>{
+    let localObject={};
+
+        localObject.id = items.id;
+        localObject.sectionId = items.sectionId;
+        localObject.webPublicationDate = items.webPublicationDate;
+        localObject.webTitle = items.webTitle;
+        localObject.sectionName = items.sectionName;
+        localObject.webUrl = items.webUrl;
+        this.setState({main: localObject})
+    }
     let apiKey=process.env.REACT_APP_API_KEY
      axios.get(`https://content.guardianapis.com/search?api-key=${apiKey}`)
     .then(res => {
@@ -38,10 +58,13 @@ class App extends React.Component {
       //console.log(this.state.data)
       let items=this.state.data;
       let Names=[];
+      let mainItem=[]
       for(let i=0; i<items.length;i++){
         console.log(items[i].sectionName)
         Names.push(items[i].sectionName);
       }
+      getMainItem(items[0]);
+      console.log("main",this.state.main);
       this.setState({sectionNames:Names})
     })
     .catch(error => {
@@ -70,7 +93,9 @@ class App extends React.Component {
                 <div className='sub-category'><SubCategory subCategory={this.state.sectionNames} /></div>
               </div>
               <div className='main'>
-                <div className='box1'>Hi</div>
+                <div className='box1'>
+                    <Main main={this.state.main} />
+                </div>
               </div>
           </div>
           <div className='footer'><Footer/></div>
