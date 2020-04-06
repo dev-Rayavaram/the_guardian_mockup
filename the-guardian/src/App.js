@@ -96,6 +96,7 @@ class App extends React.Component {
                 <div className='box1'>
                     <Main main={this.state.main} />
                 </div>
+                  <Article data={this.state.main}/>
               </div>
           </div>
           <div className='footer'><Footer/></div>
