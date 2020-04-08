@@ -111,21 +111,15 @@ class App extends React.Component {
                     <Main main={this.state.main} />
                 </div>
                 <React.Fragment>
-                  <Article data={this.state.article[0]}/>
-                <Article data={this.state.article[1]}/>
-                <Article data={this.state.article[2]}/>
-                <Article data={this.state.article[3]}/>
-                <Article data={this.state.article[4]}/>
-                <Article data={this.state.article[5]}/>
-                <Article data={this.state.article[6]}/>
-                <Article data={this.state.article[7]}/>
-                <Article data={this.state.article[8]}/>
-                <Article data={this.state.article[9]}/>
+                {
+                    Object.keys(this.state.article).map((item,index)=>{return (
+                    <Article key={index} value={item} data={this.state.article[index]}/>
+                    )}) 
+             
+                }
+                  
                 </React.Fragment>
-                
-                
-
-              </div>
+               </div>
           </div>
           <div className='footer'><Footer/></div>
 
